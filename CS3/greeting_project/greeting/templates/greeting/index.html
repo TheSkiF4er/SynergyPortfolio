@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greeting App</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'greeting/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Greeting App</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Submit</button>
+        </form>
 
+        {% if greeting_message %}
+            <p class="success">{{ greeting_message }}</p>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
