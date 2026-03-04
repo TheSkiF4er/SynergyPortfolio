@@ -1,2 +1,2 @@
 # Synergy
-Synergy LMS (Learning Management System)
+Synergy technological (design and technological) practice
