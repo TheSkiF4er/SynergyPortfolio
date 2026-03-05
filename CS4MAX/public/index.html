@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enhanced Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app" aria-label="Калькулятор">
+    <header class="header">
+      <h1>Калькулятор</h1>
+      <p class="sub">Десятичные/отрицательные • ^ и % • история • массивы через Web Worker</p>
+    </header>
+
+    <section class="panel">
+      <div class="row">
+        <label class="field">
+          <span>Число A</span>
+          <input id="a" inputmode="decimal" autocomplete="off" placeholder="например: -12.5 или 1,2,3" />
+        </label>
+
+        <label class="field">
+          <span>Операция</span>
+          <select id="op" aria-label="Операция">
+            <option value="+">+</option>
+            <option value="-">−</option>
+            <option value="*">×</option>
+            <option value="/">÷</option>
+            <option value="^">^</option>
+            <option value="%">% (A% от B)</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Число B</span>
+          <input id="b" inputmode="decimal" autocomplete="off" placeholder="например: 3 или 10 20 30" />
+        </label>
+      </div>
+
+      <div class="row row-small">
+        <label class="field">
+          <span>Знаков после запятой</span>
+          <input id="decimals" type="number" min="0" max="12" value="6" />
+        </label>
+
+        <div class="buttons">
+          <button id="btnCalc" class="primary">Посчитать</button>
+          <button id="btnClear" class="ghost">Очистить</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="result" aria-live="polite">
+          <div class="result-label">Результат</div>
+          <div id="result" class="result-value">—</div>
+          <div id="hint" class="hint" role="status"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="history-head">
+        <h2>История</h2>
+        <div class="history-actions">
+          <button id="btnHistoryClear" class="ghost">Очистить историю</button>
+        </div>
+      </div>
+      <ol id="history" class="history" aria-label="История вычислений"></ol>
+    </section>
+
+    <footer class="footer">
+      <small>
+        Подсказка: если в поле есть список ("1,2,3" или "1 2 3"), включается режим массивов.
+      </small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
