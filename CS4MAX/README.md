@@ -1,19 +1,19 @@
-# Enhanced Calculator (Vanilla JS)
+# Улучшенный калькулятор (Vanilla JS)
 
-A small, dependency-free calculator with:
+Небольшой калькулятор без зависимостей с возможностями:
 
-- **Advanced operations**: `+`, `-`, `×`, `÷`, **power** `^`, **percent** `%` ("A percent of B" → `A * B / 100`)
-- **Negative & decimal numbers** with **result formatting** (fixed decimals)
-- **Input validation** + **error highlighting** (red border + message)
-- **One-click clear** of inputs, settings and result
-- **History of calculations** (persisted in `localStorage`)
-- **Batch/array calculations** via **Web Worker** (comma/space separated lists)
-- **Modular architecture**: core logic in `src/Calculator.js` + small event system (Observer)
-- **Cross-browser considerations**: lightweight polyfills for older environments
-- **Automated tests** with **Jest**, including boundary checks
-- **Responsive UI** for mobile
+* **Расширенные операции**: `+`, `-`, `×`, `÷`, **возведение в степень** `^`, **процент** `%` («A процентов от B» → `A * B / 100`)
+* **Отрицательные и десятичные числа** с **форматированием результата** (фиксированное количество знаков после запятой)
+* **Проверка ввода** + **подсветка ошибок** (красная рамка + сообщение)
+* **Очистка в один клик** всех полей ввода, настроек и результата
+* **История вычислений** (сохраняется в `localStorage`)
+* **Пакетные/массивные вычисления** через **Web Worker** (списки, разделённые запятыми или пробелами)
+* **Модульная архитектура**: основная логика в `src/Calculator.js` + небольшая система событий (Observer)
+* **Кроссбраузерная совместимость**: лёгкие polyfill-ы для старых окружений
+* **Автоматические тесты** с использованием **Jest**, включая проверки граничных значений
+* **Адаптивный интерфейс** для мобильных устройств
 
-## Project structure
+## Структура проекта
 
 ```
 public/
@@ -31,38 +31,41 @@ package.json
 jest.config.cjs
 ```
 
-## Run in browser
+## Запуск в браузере
 
-Just open:
+Просто откройте:
 
-- `public/index.html`
+* `public/index.html`
 
-(Any static server also works.)
+(Также подойдёт любой статический сервер.)
 
-## Run tests
+## Запуск тестов
 
-Requires Node.js 18+.
+Требуется **Node.js 18+**.
 
 ```bash
 npm install
 npm test
 ```
 
-## Notes
+## Примечания
 
-### Percent operator
-`A % B` is interpreted as **A percent of B**:
+### Оператор процента
 
-- `25 % 200 = 50`
+`A % B` интерпретируется как **A процентов от B**:
 
-### Batch mode (arrays)
-If you enter a list in either input (e.g. `1,2,3` or `1 2 3`), the app switches to **batch mode**:
+* `25 % 200 = 50`
 
-- If both inputs are arrays, they must have equal length and the operation is **element-wise**.
-- If only one side is an array, the scalar is broadcast to all elements.
+### Пакетный режим (массивы)
 
-Batch calculations are executed in a **Web Worker** to keep the UI responsive.
+Если в одном из полей ввода указать список (например `1,2,3` или `1 2 3`), приложение переключается в **пакетный режим**:
 
-### Security note (server integration)
-This project **never uses `innerHTML`** for user-controlled strings; it uses `textContent` to reduce XSS risk.
-If you integrate with a server, validate/sanitize inputs server-side as well.
+* Если оба значения — массивы, они должны иметь одинаковую длину, и операция выполняется **поэлементно**.
+* Если массив только с одной стороны, скаляр применяется ко всем элементам массива.
+
+Пакетные вычисления выполняются в **Web Worker**, чтобы интерфейс оставался отзывчивым.
+
+### Примечание по безопасности (интеграция с сервером)
+
+Этот проект **никогда не использует `innerHTML`** для строк, контролируемых пользователем; используется `textContent`, чтобы снизить риск **XSS-атак**.
+Если вы интегрируете проект с сервером, также выполняйте **валидацию и очистку данных на стороне сервера**.
