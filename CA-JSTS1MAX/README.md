@@ -1,1 +1,1 @@
-**-> https://github.com/TheSkiF4er/SprintNovaControl**
+**https://github.com/TheSkiF4er/SprintNovaControl**
