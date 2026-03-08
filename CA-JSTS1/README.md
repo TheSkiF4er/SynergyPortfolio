@@ -16,16 +16,15 @@
 
 <img width="642" height="388" alt="image" src="https://github.com/user-attachments/assets/2821fb36-4672-4356-ac0f-db3b139bb326" />
 
-
 **Пример визуализации спринта для продвинутого уровня:**
 
-IMG
+ <img width="721" height="346" alt="image" src="https://github.com/user-attachments/assets/1a6aace8-0492-4a83-b3c3-c65d76837fe6" />
 
 **Активный спринт.** Страница отображает доску канбан с активными задачами. Есть фильтр по участникам команды при нажатии на который остаются только задача отфильтрованного участника.
 
 **Пример:**
 
-IMG
+ <img width="705" height="353" alt="image" src="https://github.com/user-attachments/assets/97a1bab7-2c4b-4a27-89f6-2fcfb5ec5e60" />
 
 Страница с добавлением задачи имеет окно и оно в свою очередь имеет следующие обязательные поля для заполнения при создании задачи:
 * Заголовок
@@ -46,13 +45,13 @@ IMG
 
 **Пример окна с добавлением задачи:**
 
-IMG
+ <img width="562" height="443" alt="image" src="https://github.com/user-attachments/assets/3367efd8-bbd2-4148-97f0-348360fe612a" />
 
 На странице с добавлением необходимо добавить 
 
 возможность добавления спринта. Необходимо создать на подобии **примера ниже:** 
 
-IMG
+ <img width="708" height="352" alt="image" src="https://github.com/user-attachments/assets/789636b2-abe6-4085-a5db-e63fa88ade59" />
 
 Поля:
 * Имя спринта
