@@ -73,7 +73,7 @@
 
 # CHANGEBODY — источники исследований
 
-## Accessibility
+## Доступность
 - Apple Human Interface Guidelines
 - Apple HIG: Accessibility
 - Apple HIG: Typography
