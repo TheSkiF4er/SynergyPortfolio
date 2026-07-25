@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--
+      CSP лучше выставлять заголовком сервера, но meta — нормальный старт для статической страницы.
+      При серверной интеграции рекомендовано перевести CSP в HTTP header.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+    <title>Counter App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sr-only" id="sr-status" aria-live="polite"></div>
+        <div id="result" class="result" role="status" aria-live="polite" aria-atomic="true">0</div>
+        <div class="buttons">
+            <button id="minus" type="button" data-action="DECREMENT" aria-label="Уменьшить значение">Минус</button>
+            <button id="plus" type="button" data-action="INCREMENT" aria-label="Увеличить значение">Плюс</button>
+        </div>
+        <div id="message" class="message" role="alert" aria-live="assertive"></div>
+    </div>
+
+    <script type="module" src="src/ui/app.js"></script>
+</body>
+</html>

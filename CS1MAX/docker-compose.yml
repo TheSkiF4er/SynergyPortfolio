@@ -1,0 +1,6 @@
+services:
+  web:
+    build: .
+    command: bash -lc "cd web && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"

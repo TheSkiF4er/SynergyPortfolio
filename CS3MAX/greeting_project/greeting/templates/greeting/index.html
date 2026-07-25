@@ -1,0 +1,83 @@
+{% extends "greeting/base.html" %}
+{% load ui %}
+{% block title %}Greeting App · Home{% endblock %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card shadow-sm rounded-4">
+        <div class="card-body p-4">
+          <h1 class="h3 mb-3">Say hello 👋</h1>
+          <p class="text-muted mb-4">Enter your name and we will greet you. Your submission will appear in the history.</p>
+
+          <form method="post" id="greeting-form" novalidate>
+            {% csrf_token %}
+
+            <div class="mb-3">
+              {{ form.name.label_tag }}
+              {{ form.name }}
+              {% if form.name.help_text %}
+                <div class="form-text">{{ form.name.help_text }}</div>
+              {% endif %}
+              {% if form.name.errors %}
+                <div class="invalid-feedback d-block">
+                  {{ form.name.errors|striptags }}
+                </div>
+              {% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submit-btn">
+              <span class="spinner-border spinner-border-sm me-2 d-none" id="spinner" role="status" aria-hidden="true"></span>
+              Submit
+            </button>
+            <a class="btn btn-outline-secondary ms-2" href="{% url 'greetings' %}">Manage names</a>
+          </form>
+        </div>
+      </div>
+
+      <div class="card shadow-sm rounded-4 mt-4">
+        <div class="card-body p-4">
+          <h2 class="h5 mb-3">Latest registrations</h2>
+          {% if last_greetings %}
+            <div class="table-responsive">
+              <table class="table table-sm align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th class="text-end">Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for g in last_greetings %}
+                    <tr>
+                      <td>{{ g.name }}</td>
+                      <td class="text-end text-muted">{{ g.created_at|local_dt }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% else %}
+            <p class="text-muted mb-0">No greetings yet. Be the first 🙂</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  (function () {
+    const form = document.getElementById('greeting-form');
+    const btn = document.getElementById('submit-btn');
+    const spinner = document.getElementById('spinner');
+
+    if (!form) return;
+    form.addEventListener('submit', function () {
+      btn.setAttribute('disabled', 'disabled');
+      spinner.classList.remove('d-none');
+    });
+  })();
+</script>
+{% endblock %}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Birthdate Web</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+    pre { background: #f6f6f6; padding: 12px; border-radius: 10px; overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border-bottom: 1px solid #eee; padding: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>Birthdate Web</h1>
+
+  <div class="card">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Рассчитать</button>
+    </form>
+    {% if error %}
+      <p style="color: #b00020;">{{ error }}</p>
+    {% endif %}
+    {% if result %}
+      <h2>Результат</h2>
+      <p><b>Дата:</b> {{ result.birth_date }}</p>
+      <p><b>День недели:</b> {{ result.weekday_ru }}</p>
+      <p><b>Високосный год:</b> {% if result.is_leap_year %}Да{% else %}Нет{% endif %}</p>
+      <p><b>Возраст:</b> {{ result.age_years }} лет</p>
+      <pre>{{ result.styled_date }}</pre>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <h2>История (последние 20)</h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>User</th><th>Date</th><th>Weekday</th><th>Age</th><th>Created</th></tr>
+      </thead>
+      <tbody>
+      {% for h in history %}
+        <tr>
+          <td>{{ h.id }}</td>
+          <td>{{ h.user }}</td>
+          <td>{{ h.birth_date }}</td>
+          <td>{{ h.weekday_ru }}</td>
+          <td>{{ h.age_years }}</td>
+          <td>{{ h.created_at }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="6">Пусто</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
