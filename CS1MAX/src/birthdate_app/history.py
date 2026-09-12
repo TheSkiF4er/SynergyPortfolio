@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import sqlite3
 from dataclasses import dataclass
-from datetime import datetime, date
+from datetime import datetime, timezone, date
 from pathlib import Path
 from typing import Iterable
 
@@ -50,7 +50,7 @@ def add_entry(user: str, birth_date: date, db_path: Path = DEFAULT_DB_PATH) -> i
     with sqlite3.connect(db_path) as con:
         cur = con.execute(
             "INSERT INTO history(user, birth_date, created_at) VALUES (?, ?, ?)",
-            (user, birth_date.isoformat(), datetime.utcnow().isoformat()),
+            (user, birth_date.isoformat(), datetime.now(timezone.utc).isoformat()),
         )
         con.commit()
         return int(cur.lastrowid)

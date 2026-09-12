@@ -1,0 +1,1 @@
+window.sequence=(window.sequence||[]).concat('two');

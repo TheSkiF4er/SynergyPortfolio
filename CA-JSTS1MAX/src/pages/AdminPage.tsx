@@ -72,7 +72,7 @@ const AdminPage = () => {
     setSprintForm(sprint || emptySprint);
   }, [sprint]);
 
-  const remainingHours = useMemo(() => getSprintRemainingHours(sprint, tasks), [sprint, tasks]);
+  const remainingHours = useMemo(() => getSprintRemainingHours(sprint, tasks, members.length), [sprint, tasks, members.length]);
   const estimate = Number(taskForm.estimateHours || 0);
   const currentEditedTask = tasks.find((task) => task.id === editingTaskId) || null;
   const projectedRemainingHours = remainingHours - estimate + (currentEditedTask?.estimateHours || 0);

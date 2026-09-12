@@ -1,0 +1,1 @@
+export default function App(){const topics=['components','JSX','props','state','events'];return <main><h1>React introduction</h1><p>Компонент — функция, возвращающая JSX.</p><ul>{topics.map(x=><li key={x}>{x}</li>)}</ul></main>}

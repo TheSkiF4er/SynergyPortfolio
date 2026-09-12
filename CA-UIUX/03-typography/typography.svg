@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<rect width="1440" height="900" fill="#F5F7FA"/>
+<text x="80" y="90" font-family="Arial,sans-serif" font-size="42" font-weight="700" fill="#111827">Типографика</text>
+<text x="80" y="132" font-family="Arial,sans-serif" font-size="20" fill="#667085">Шкала размеров, контраст и читаемость</text>
+<text x="100" y="260" font-family="Arial" font-size="64" font-weight="700" fill="#101828">Display / 64 / 700</text><text x="100" y="350" font-family="Arial" font-size="42" font-weight="700" fill="#101828">Heading / 42 / 700</text><text x="100" y="435" font-family="Arial" font-size="28" font-weight="600" fill="#101828">Subheading / 28 / 600</text><text x="100" y="515" font-family="Arial" font-size="18" fill="#344054">Body / 18 / 400 — основной текст интерфейса с комфортной длиной строки.</text><text x="100" y="575" font-family="Arial" font-size="15" fill="#667085">Caption / 15 / 400 — вторичная информация</text><rect x="100" y="665" width="1240" height="1" fill="#D0D5DD"/><text x="100" y="725" font-family="Arial" font-size="18" fill="#475467">Правило: не больше 3–4 типографических уровней на одном экране.</text>
+</svg>

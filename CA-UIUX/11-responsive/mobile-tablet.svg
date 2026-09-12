@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<rect width="1440" height="900" fill="#F5F7FA"/>
+<text x="80" y="90" font-family="Arial,sans-serif" font-size="42" font-weight="700" fill="#111827">Адаптивная версия</text>
+<text x="80" y="132" font-family="Arial,sans-serif" font-size="20" fill="#667085">Desktop → Tablet → Mobile, сохранение иерархии и touch targets</text>
+<rect x="90" y="200" width="650" height="500" rx="24" fill="#fff" stroke="#98A2B3"/><rect x="130" y="250" width="570" height="90" rx="14" fill="#E8F0FF"/><rect x="130" y="375" width="270" height="260" rx="14" fill="#F2F4F7"/><rect x="430" y="375" width="270" height="260" rx="14" fill="#F2F4F7"/><rect x="830" y="185" width="290" height="560" rx="34" fill="#fff" stroke="#98A2B3"/><rect x="860" y="245" width="230" height="100" rx="14" fill="#E8F0FF"/><rect x="860" y="375" width="230" height="130" rx="14" fill="#F2F4F7"/><rect x="860" y="535" width="230" height="130" rx="14" fill="#F2F4F7"/><rect x="1180" y="225" width="180" height="470" rx="32" fill="#fff" stroke="#98A2B3"/><rect x="1200" y="280" width="140" height="90" rx="14" fill="#E8F0FF"/><rect x="1200" y="400" width="140" height="110" rx="14" fill="#F2F4F7"/><rect x="1200" y="540" width="140" height="110" rx="14" fill="#F2F4F7"/>
+</svg>

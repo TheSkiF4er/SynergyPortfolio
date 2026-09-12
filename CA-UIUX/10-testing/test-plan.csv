@@ -1,0 +1,6 @@
+variant,participant,completed,time_seconds,errors,comment
+A,P1,true,52,1,"CTA understood"
+A,P2,true,61,1,"looked at secondary card"
+B,P3,true,39,0,"clear action"
+B,P4,true,42,0,"clear action"
+B,P5,true,44,0,"no issue"

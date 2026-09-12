@@ -235,3 +235,7 @@ src/
 
 **SprintNova Control** — это внутренний продуктовый инструмент для команд, которым нужен ясный операционный контроль спринта, прозрачность исполнения и управляемость delivery-потока без лишней сложности.
 
+
+
+### Portfolio hardening
+Task IDs use only digits 1–9 after the prefix, sprint capacity includes team size, and JSON import performs runtime shape validation. `npm run typecheck` is available.

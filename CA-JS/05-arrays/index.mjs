@@ -1,0 +1,12 @@
+const original = 'luke, I am your father';
+const corrected = original[0].toUpperCase() + original.slice(1);
+console.log(corrected);
+const first = 'AbcdEfg', second = 'abCDEFg';
+console.log('Сравнение как есть:', first === second);
+console.log('Сравнение в верхнем регистре:', first.toUpperCase() === second.toUpperCase());
+const years = [2000, 2001, 2002, 2003, 2004, 2005];
+console.log('Високосные:', years.filter(y => y % 400 === 0 || (y % 4 === 0 && y % 100 !== 0)));
+const numbers = [6, 187, 66, 4, 67, 30, 18];
+const sorted = [...numbers].sort((a,b) => a-b);
+console.log('sort:', sorted);
+console.log('reverse:', [...sorted].reverse());

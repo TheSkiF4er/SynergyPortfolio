@@ -129,7 +129,7 @@ class Calculator {
 
 /**
  * Restrict input symbols to digits, dot, comma, spaces, semicolons, and leading minus.
- * Allows pasting lists like "1,2,3" or "-1.5 2 3".
+ * Allows decimal comma ("1,5") and lists separated by spaces/semicolons ("1; 2; 3").
  */
 function restrictInput(el) {
   el.addEventListener('beforeinput', (e) => {
@@ -152,7 +152,7 @@ function parseScalarOrArray(raw) {
   const s = String(raw || '').trim();
   if (!s) throw new Error('Пустое поле');
 
-  const tokens = s.split(/[\s,;]+/).filter(Boolean);
+  const tokens = s.split(/[\s;]+/).filter(Boolean);
   const isArray = tokens.length > 1;
 
   const toNum = (t) => {

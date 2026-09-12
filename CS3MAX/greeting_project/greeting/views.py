@@ -37,9 +37,7 @@ def index(request: HttpRequest) -> HttpResponse:
         if form.is_valid():
             name = form.cleaned_data["name"]
             Greeting.objects.create(name=name)
-            cache.delete("last_greetings")
-            # Invalidate the most common API cache key.
-            cache.delete("api_greetings:20")
+            cache.clear()
             greeting = _time_based_greeting(timezone.localtime())
             messages.success(request, f"{greeting}, {name}! Your name was saved successfully.")
             return redirect("index")
@@ -87,8 +85,7 @@ class GreetingUpdateView(UpdateView):
 
     def form_valid(self, form):
         messages.success(self.request, "Name updated successfully.")
-        cache.delete("last_greetings")
-        cache.delete("api_greetings:20")
+        cache.clear()
         return super().form_valid(form)
 
 
@@ -101,8 +98,7 @@ class GreetingDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         messages.success(request, "Name deleted successfully.")
-        cache.delete("last_greetings")
-        cache.delete("api_greetings:20")
+        cache.clear()
         return super().delete(request, *args, **kwargs)
 
 
@@ -112,7 +108,13 @@ def api_greetings(request: HttpRequest) -> JsonResponse:
 
     Intended as a starting point for future extension (auth, pagination, etc.).
     """
-    limit = min(int(request.GET.get("limit", "20")), 100)
+    try:
+        limit = int(request.GET.get("limit", "20"))
+    except (TypeError, ValueError):
+        return JsonResponse({"error": "limit must be an integer"}, status=400)
+    if limit < 1:
+        return JsonResponse({"error": "limit must be >= 1"}, status=400)
+    limit = min(limit, 100)
 
     cache_key = f"api_greetings:{limit}"
     cached = cache.get(cache_key)

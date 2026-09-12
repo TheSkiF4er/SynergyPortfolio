@@ -48,8 +48,26 @@ const defaultState: PersistedState = {
   lastSavedAt: null
 };
 
+const isRecord = (value: unknown): value is Record<string, unknown> => Boolean(value) && typeof value === 'object';
+
+const isValidMember = (value: unknown): value is TeamMember =>
+  isRecord(value) && ['id', 'fullName', 'position', 'department'].every((key) => typeof value[key] === 'string');
+
+const isValidTask = (value: unknown): value is Task => {
+  if (!isRecord(value)) return false;
+  const requiredStrings = ['id', 'title', 'subtitle', 'authorId', 'assigneeId', 'description', 'status', 'priority', 'category', 'sprintId', 'createdAt'];
+  return requiredStrings.every((key) => typeof value[key] === 'string') &&
+    typeof value.estimateHours === 'number' && Number.isFinite(value.estimateHours) && value.estimateHours >= 0 &&
+    Array.isArray(value.watchers) && value.watchers.every((item) => typeof item === 'string') &&
+    (!('blockedByTaskIds' in value) || (Array.isArray(value.blockedByTaskIds) && value.blockedByTaskIds.every((item) => typeof item === 'string')));
+};
+
 const isValidImportedState = (data: unknown): data is Partial<PersistedState> => {
-  if (!data || typeof data !== 'object') return false;
+  if (!isRecord(data)) return false;
+  if ('members' in data && (!Array.isArray(data.members) || !data.members.every(isValidMember))) return false;
+  if ('tasks' in data && (!Array.isArray(data.tasks) || !data.tasks.every(isValidTask))) return false;
+  if ('sprint' in data && data.sprint !== null && !isRecord(data.sprint)) return false;
+  if ('activityLog' in data && !Array.isArray(data.activityLog)) return false;
   return true;
 };
 

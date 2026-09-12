@@ -59,12 +59,12 @@ const DashboardPage = () => {
   const completedCount = tasks.filter((task) => task.status === 'done').length;
   const totalCount = tasks.length;
   const progress = getProgressPercent(completedCount, totalCount);
-  const remainingHours = getSprintRemainingHours(sprint, tasks);
+  const remainingHours = getSprintRemainingHours(sprint, tasks, members.length);
   const chartData = getTaskLoadByMember(tasks, members);
   const blockedTasks = getBlockedTasks(tasks);
   const blockedHours = getBlockedLoadHours(tasks);
   const overloadedMembers = chartData.filter((item) => item.value > 16);
-  const utilization = getUtilizationPercent(sprint, tasks);
+  const utilization = getUtilizationPercent(sprint, tasks, members.length);
   const wipAlerts = getWipAlerts(tasks, members);
   const recentActivity = getRecentActivity(activityLog, 6);
   const recentTasks = getRecentTasks(tasks, 4);

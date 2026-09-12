@@ -1,0 +1,1 @@
+class NoDiscount{apply(total){return total}}class PercentDiscount{constructor(p){this.p=p}apply(total){return total*(1-this.p/100)}}class Checkout{constructor(discount){this.discount=discount}total(items){return this.discount.apply(items.reduce((s,x)=>s+x.price,0))}}console.log(new Checkout(new PercentDiscount(10)).total([{price:100},{price:50}]));

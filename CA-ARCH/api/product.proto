@@ -1,0 +1,10 @@
+syntax = "proto3";
+package markethub.product.v1;
+service ProductService { rpc Create(ProductRequest) returns (Product); rpc Get(IdRequest) returns (Product); rpc List(ProductFilter) returns (ProductList); rpc Update(UpdateRequest) returns (Product); rpc Delete(IdRequest) returns (DeleteResult); }
+message Product { string id=1; string sku=2; string title=3; string description=4; string category=5; double price=6; string currency=7; int32 stock_qty=8; string status=9; string seller_id=10; }
+message ProductRequest { string sku=1; string title=2; string description=3; string category=4; double price=5; string currency=6; int32 stock_qty=7; string status=8; string seller_id=9; }
+message IdRequest { string id=1; }
+message ProductFilter { string category=1; string status=2; string seller_id=3; }
+message ProductList { repeated Product items=1; }
+message UpdateRequest { string id=1; ProductRequest product=2; }
+message DeleteResult { bool deleted=1; }

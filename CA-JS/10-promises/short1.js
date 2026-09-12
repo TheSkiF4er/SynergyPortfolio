@@ -1,0 +1,1 @@
+function shortFunction1(){console.log('It is a very short function 1.')}shortFunction1();window.promiseSequence=(window.promiseSequence||[]).concat('short1');

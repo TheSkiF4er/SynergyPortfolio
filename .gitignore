@@ -1,0 +1,32 @@
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Node
+**/node_modules/
+**/dist/
+**/build/
+**/coverage/
+**/.vite/
+**/.env
+**/.env.local
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.venv/
+**/venv/
+
+# Runtime / generated data
+**/attachments/
+**/*.sqlite3
+**/*.log
+
+# GNS3 local appliance state and proprietary images
+**/project-files/
+**/*.image
+**/*.bin
+**/*.qcow2

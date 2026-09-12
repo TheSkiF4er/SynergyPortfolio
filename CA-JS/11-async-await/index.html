@@ -1,0 +1,1 @@
+<!doctype html><meta charset="utf-8"><button id="run">Run</button><pre id="out"></pre><script type="module">const sleep=ms=>new Promise(r=>setTimeout(r,ms));run.onclick=async()=>{try{out.textContent='waiting…';await sleep(250);out.textContent='async/await resolved';}catch(e){out.textContent=e.message;}};</script>

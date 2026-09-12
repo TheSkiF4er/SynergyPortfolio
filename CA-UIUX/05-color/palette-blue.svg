@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<rect width="1440" height="900" fill="#F5F7FA"/>
+<text x="80" y="90" font-family="Arial,sans-serif" font-size="42" font-weight="700" fill="#111827">Цветовая концепция — Blue / Trust</text>
+<text x="80" y="132" font-family="Arial,sans-serif" font-size="20" fill="#667085">Один и тот же экран в разных эмоциональных палитрах</text>
+<rect x="100" y="190" width="1240" height="590" rx="28" fill="#E8F0FF"/><text x="160" y="315" font-family="Arial" font-size="54" font-weight="700" fill="#101828">Управляйте проектами проще</text><text x="160" y="380" font-family="Arial" font-size="22" fill="#101828">Цвет меняет характер интерфейса без изменения структуры.</text><rect x="160" y="455" width="250" height="70" rx="14" fill="#0B5FFF"/><text x="215" y="499" font-family="Arial" font-size="20" fill="#fff">Начать работу</text><rect x="950" y="270" width="260" height="300" rx="26" fill="#fff"/><circle cx="1080" cy="375" r="62" fill="#0B5FFF"/><rect x="1000" y="480" width="160" height="18" rx="9" fill="#101828" opacity=".22"/>
+</svg>

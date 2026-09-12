@@ -1,0 +1,1 @@
+const normalizeEmail=s=>String(s).trim().toLowerCase();export function registerUser(input){if(!input?.email)throw new Error('email required');if(!input?.name?.trim())throw new Error('name required');return Object.freeze({name:input.name.trim(),email:normalizeEmail(input.email)});}console.log(registerUser({name:' Alex ',email:' DEV@EXAMPLE.COM '}));

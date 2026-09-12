@@ -1,0 +1,2 @@
+import{useState}from'react';
+export default function App(){const[count,setCount]=useState(0);const active=count%2===1;const evenNonZero=count>0&&count%2===0;return <main className={evenNonZero?'even-background':''}><h1>Conditional rendering</h1><button className={active?'active':''} onClick={()=>setCount(x=>x+1)}>Клик #{count}</button><p>Каждый клик меняет класс кнопки; каждый второй — фон.</p></main>}

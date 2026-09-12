@@ -1,0 +1,1 @@
+function loadScript(src, callback){const script=document.createElement('script');script.src=src;script.onload=()=>callback(null,script);script.onerror=()=>callback(new Error(`Не удалось загрузить ${src}`));document.head.append(script);}loadScript('./post.js',(error)=>{if(error){document.querySelector('#root').textContent=error.message;console.error(error);}});

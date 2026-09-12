@@ -66,7 +66,7 @@ export const generateTaskId = (tasks: Task[]): string => {
 
   for (;;) {
     const prefix = `${letters[Math.floor(Math.random() * letters.length)]}${letters[Math.floor(Math.random() * letters.length)]}`;
-    const numeric = Math.floor(Math.random() * 9000) + 1000;
+    const numeric = Array.from({ length: 4 }, () => String(Math.floor(Math.random() * 9) + 1)).join('');
     const taskId = `${prefix}-${numeric}`;
     if (!existingIds.has(taskId)) return taskId;
   }
@@ -75,10 +75,10 @@ export const generateTaskId = (tasks: Task[]): string => {
 export const getMemberName = (members: TeamMember[], id: string): string =>
   members.find((member) => member.id === id)?.fullName || 'Не назначен';
 
-export const getSprintRemainingHours = (sprint: Sprint | null, tasks: Task[]): number => {
+export const getSprintRemainingHours = (sprint: Sprint | null, tasks: Task[], memberCount = 1): number => {
   if (!sprint) return 0;
 
-  const totalHours = sprint.durationDays * 8;
+  const totalHours = sprint.durationDays * 8 * Math.max(1, memberCount);
   const reservedHours = tasks
     .filter((task) => task.sprintId === sprint.id)
     .reduce((sum, task) => sum + task.estimateHours, 0);
@@ -119,9 +119,9 @@ export const sortTasks = (tasks: Task[], sortBy: 'newest' | 'estimateDesc' | 'es
   }
 };
 
-export const getUtilizationPercent = (sprint: Sprint | null, tasks: Task[]) => {
+export const getUtilizationPercent = (sprint: Sprint | null, tasks: Task[], memberCount = 1) => {
   if (!sprint) return 0;
-  const totalHours = sprint.durationDays * 8;
+  const totalHours = sprint.durationDays * 8 * Math.max(1, memberCount);
   if (!totalHours) return 0;
   const reservedHours = tasks.filter((task) => task.sprintId === sprint.id).reduce((sum, task) => sum + task.estimateHours, 0);
   return Math.round((reservedHours / totalHours) * 100);
@@ -208,7 +208,7 @@ export const getHealthScore = (sprint: Sprint | null, tasks: Task[], members: Te
   let score = 100;
   const staleTasks = getStaleTasks(tasks, 3).length;
   const wipAlerts = getWipAlerts(tasks, members).length;
-  const utilization = getUtilizationPercent(sprint, tasks);
+  const utilization = getUtilizationPercent(sprint, tasks, members.length);
   const criticalOpen = tasks.filter((task) => task.priority === 'critical' && task.status !== 'done').length;
   const unresolvedBugs = tasks.filter((task) => task.category === 'bug' && task.status !== 'done').length;
   const blocked = getBlockedTasks(tasks).length;

@@ -1,0 +1,47 @@
+type Product {
+  id: ID!
+  sku: String!
+  title: String!
+  description: String!
+  category: String!
+  price: Float!
+  currency: String!
+  stock_qty: Int!
+  status: String!
+  seller_id: String!
+}
+
+input ProductInput {
+  sku: String!
+  title: String!
+  description: String = ""
+  category: String = "general"
+  price: Float!
+  currency: String = "RUB"
+  stock_qty: Int = 0
+  status: String = "active"
+  seller_id: String!
+}
+
+input ProductPatch {
+  sku: String
+  title: String
+  description: String
+  category: String
+  price: Float
+  currency: String
+  stock_qty: Int
+  status: String
+  seller_id: String
+}
+
+type Query {
+  product(id: ID!): Product
+  products(category: String, status: String, seller_id: String): [Product!]!
+}
+
+type Mutation {
+  createProduct(input: ProductInput!): Product!
+  updateProduct(id: ID!, input: ProductPatch!): Product
+  deleteProduct(id: ID!): Boolean!
+}
