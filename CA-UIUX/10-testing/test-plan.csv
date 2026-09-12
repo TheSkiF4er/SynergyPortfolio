@@ -1,6 +1,4 @@
-variant,participant,completed,time_seconds,errors,comment
-A,P1,true,52,1,"CTA understood"
-A,P2,true,61,1,"looked at secondary card"
-B,P3,true,39,0,"clear action"
-B,P4,true,42,0,"clear action"
-B,P5,true,44,0,"no issue"
+test,variant,cta,task,primary_metric
+AB,A,Начать,Найдите и запустите лёгкую тренировку,completion_time_errors
+AB,B,Начать тренировку,Найдите и запустите лёгкую тренировку,completion_time_errors
+Corridor,default,Начать тренировку,Без подсказки найдите и запустите тренировку,completion_help_requests

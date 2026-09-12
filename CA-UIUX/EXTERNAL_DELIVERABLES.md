@@ -1,13 +1,14 @@
-# Внешние артефакты, которые нельзя достоверно создать внутри Git-архива
+# Внешние deliverables
 
-Локальная часть всех практик подготовлена: исследования, макеты/варианты, UI kit, тест-план, responsive board, сценарий защиты и handoff-документация.
+Локальные файлы подготовлены настолько, насколько это возможно без подмены реальных действий. Статус ниже используется и в `ASSIGNMENT_STATUS.md`.
 
-Для буквальной сдачи отдельных пунктов курса владелец репозитория должен создать в соответствующих сервисах и вставить реальные ссылки:
+| Deliverable | Локально подготовлено | Что остаётся сделать владельцу |
+|---|---|---|
+| Google Form | вопросы + типы полей в `07-client-brief/google-form-blueprint.md` | создать форму и вставить URL |
+| Usability research | protocol + results template | провести 5–7 реальных сессий |
+| A/B + corridor | test plan + results template + analysis method | провести тест с реальными участниками |
+| Figma | importable SVG + tokens/specs + import checklist | создать Figma file/prototype/Dev Mode URL |
+| Video presentation | сценарий + recording checklist | записать/загрузить и вставить URL |
+| GNS3 evidence | полные configs/verification commands в `CA-NET` | запустить IOS, сохранить `.gns3`, screenshots/capture |
 
-- [ ] Google Form с клиентским брифом (`07-client-brief/README.md`);
-- [ ] Figma-файл/страницы с research и references (`08-research/README.md`);
-- [ ] Figma prototype для финального выбранного проекта;
-- [ ] Figma Developer Mode / handoff link (`13-handoff/README.md`);
-- [ ] ссылка на видеозащиту (`12-presentation/README.md`).
-
-Причина: эти ссылки удостоверяют факт существования объектов в аккаунтах сторонних сервисов. В репозитории намеренно нет вымышленных URL или поддельных `.fig`-файлов.
+Плейсхолдерные или вымышленные URL, fake respondents и поддельные screenshots намеренно не создаются.

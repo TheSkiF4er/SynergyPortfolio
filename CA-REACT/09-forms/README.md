@@ -1,3 +1,16 @@
-# Тема 9 — React & Forms
+# React — ДЗ 9: формы, FormData и валютный калькулятор
 
-`npm install && npm run dev`
+Приложение содержит `ContactForm`, внутри которого каждая пользовательская часть вынесена в отдельный React-компонент:
+
+- `TextField` — имя и email;
+- `MessageField` — сообщение;
+- `CurrencyCalculator` — выбор валют, сумма, загрузка курса и вычисление результата.
+
+При submit браузерная форма преобразуется в `FormData` и отправляется через `fetch` на учебный endpoint `https://httpbin.org/post`. В `FormData` входят контактные поля и данные валютного расчёта. Для курса используется публичный Frankfurter API.
+
+```bash
+npm install
+npm run dev
+```
+
+Для работы запросов нужен доступ в интернет.

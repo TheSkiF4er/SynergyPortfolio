@@ -10,32 +10,83 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: 22
+        with: { node-version: 22 }
       - uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-      - name: Build and smoke-test OS assignments
+        with: { python-version: '3.13' }
+      - name: OS assignments
         run: make -C CA-OS test
-      - name: Test JavaScript assignments
+      - name: JavaScript assignments
         run: node --test CA-JS/tests/solutions.test.mjs
-      - name: Install Python test runner
-        run: python -m pip install pytest
-      - name: Test CS1 PLUS
-        run: python -m pytest -q CS1PLUS/tests
-      - name: Test CS1 MAX
-        run: python -m pytest -q CS1MAX/tests
+      - name: Python tests
+        run: |
+          python -m pip install pytest
+          python -m pytest -q CS1PLUS/tests
+          python -m pytest -q CS1MAX/tests
       - name: Compile Python sources
-        run: python -m compileall -q CA-ARCH CS1PLUS CS1MAX
+        run: python -m compileall -q CA-ARCH CS1PLUS CS1MAX CS3MAX
 
   architecture-patterns:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Install TypeScript compiler
-        run: npm install --global typescript@5.8.3
-      - name: Compile and test patterns
-        run: npm --prefix CA-ARCH/patterns test
+        with: { node-version: 22 }
+      - run: npm install --global typescript@5.8.3
+      - run: npm --prefix CA-ARCH/patterns test
+
+
+  architecture-api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - name: Install API dependencies
+        working-directory: CA-ARCH/api
+        run: python -m pip install -r requirements-dev.txt
+      - name: Test REST, GraphQL and protobuf gRPC
+        working-directory: CA-ARCH/api
+        run: python -m pytest -q test_api.py
+
+  react-homework:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - CA-REACT/01-introduction
+          - CA-REACT/02-environment
+          - CA-REACT/03-components
+          - CA-REACT/04-state
+          - CA-REACT/05-conditional-rendering
+          - CA-REACT/06-router-browser-api
+          - CA-REACT/07-guardian-api
+          - CA-REACT/08-hooks-optimization
+          - CA-REACT/09-forms
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Install exact package.json dependencies
+        working-directory: ${{ matrix.project }}
+        run: npm install --no-audit --no-fund
+      - name: Build
+        working-directory: ${{ matrix.project }}
+        run: npm run build
+
+  sprint-apps:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: { project: [CA-JSTS1, CA-JSTS1PLUS, CA-JSTS1MAX] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - working-directory: ${{ matrix.project }}
+        run: npm install --no-audit --no-fund
+      - working-directory: ${{ matrix.project }}
+        run: npm run build
+      - if: matrix.project == 'CA-JSTS1MAX'
+        working-directory: CA-JSTS1MAX
+        run: npm run typecheck

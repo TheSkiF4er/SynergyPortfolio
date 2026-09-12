@@ -1,3 +1,3 @@
-# Research / конкуренты / usability
+# Практика 8 — research / конкуренты / usability
 
-Сравнение Nike Training Club, FitOn и Freeletics по onboarding, discoverability, progress feedback. Гипотеза: один primary CTA снижает когнитивную нагрузку.
+Локальная исследовательская часть оформлена в `research-plan.md`: цели, конкурентная матрица, гипотезы, сценарий usability test, шаблон фиксации наблюдений и перечень reference categories. Реальные пользовательские результаты не подменяются вымышленными данными: после сессий заполняется `usability-results-template.csv`.

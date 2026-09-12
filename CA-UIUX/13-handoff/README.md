@@ -1,3 +1,3 @@
-# Production handoff
+# Практика 13 — production handoff
 
-Компонентные состояния, tokens, размеры, responsive rules, accessibility, экспорт assets; developer checklist.
+`HANDOFF.md` содержит спецификацию, `figma-import-checklist.md` — последовательность переноса локальных SVG/tokens в Figma и подготовки Developer Mode. Реальный Figma Dev URL должен указывать на объект в аккаунте владельца.

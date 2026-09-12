@@ -1,3 +1,3 @@
-# Модульная сетка
+# Практика 2 — модульная сетка
 
-Desktop: 12 колонок, 1200px container, 24px gutter. Tablet: 8 колонок. Mobile: 4 колонки, 16px margins.
+`grid.svg` содержит полноценный desktop-макет 1920×1080 поверх 12-колоночной сетки: container 1440 px, gutter 24 px, margins 240 px. Видны header, hero, карточки и CTA; полупрозрачные колонки позволяют проверить привязку блоков к сетке. Responsive rule: 8 колонок tablet, 4 колонки mobile.
