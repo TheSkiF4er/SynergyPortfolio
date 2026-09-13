@@ -1,0 +1,1 @@
+<?php declare(strict_types=1); namespace UserSystem; final class Authentication { public function authenticate(User $user,string $email,string $password):bool{return hash_equals($user->getEmail(),$email)&&$user->verifyPassword($password);} }

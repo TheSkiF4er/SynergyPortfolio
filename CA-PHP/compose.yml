@@ -1,0 +1,22 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: synergy_php
+      MYSQL_USER: synergy
+      MYSQL_PASSWORD: synergy
+      MYSQL_ROOT_PASSWORD: root
+    ports: ["3306:3306"]
+    volumes:
+      - ./14-database-schema/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./17-authentication/schema.sql:/docker-entrypoint-initdb.d/02-auth.sql:ro
+  php:
+    build: .
+    depends_on: [db]
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: synergy_php
+      DB_USER: synergy
+      DB_PASSWORD: synergy
+    ports: ["8080:80"]

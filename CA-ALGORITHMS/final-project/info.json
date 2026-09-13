@@ -1,0 +1,13 @@
+{
+  "count": 8,
+  "students": [
+    {"firstName":"Иван","lastName":"Иванов","middleName":"Иванович","faculty":"Информационные технологии","grade":7},
+    {"firstName":"Анна","lastName":"Петрова","middleName":"Сергеевна","faculty":"Экономика","grade":9},
+    {"firstName":"Максим","lastName":"Сидоров","middleName":"Олегович","faculty":"Информационные технологии","grade":6},
+    {"firstName":"Елена","lastName":"Орлова","middleName":"Андреевна","faculty":"Дизайн","grade":8},
+    {"firstName":"Мария","lastName":"Кузнецова","middleName":"Игоревна","faculty":"Юриспруденция","grade":5},
+    {"firstName":"Алексей","lastName":"Морозов","middleName":"Павлович","faculty":"Информационные технологии","grade":4},
+    {"firstName":"София","lastName":"Волкова","middleName":"Романовна","faculty":"Управление","grade":3},
+    {"firstName":"Даниил","lastName":"Соколов","middleName":"Алексеевич","faculty":"Информационные технологии","grade":10}
+  ]
+}

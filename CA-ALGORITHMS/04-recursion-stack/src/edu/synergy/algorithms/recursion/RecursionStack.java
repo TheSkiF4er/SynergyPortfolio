@@ -1,0 +1,4 @@
+package edu.synergy.algorithms.recursion;
+import java.util.*;
+public final class RecursionStack { private RecursionStack(){} public static int calculateSum(int n){if(n<0)throw new IllegalArgumentException();return n<=1?n:n+calculateSum(n-1);} public static int recursiveSum(int n){return calculateSum(n);}
+ public static String range(int a,int b){StringBuilder s=new StringBuilder();appendRange(a,b,s);return s.toString().trim();} private static void appendRange(int a,int b,StringBuilder s){s.append(a).append(' ');if(a==b)return;appendRange(a+(a<b?1:-1),b,s);} public static boolean validBrackets(String value){Deque<Character> stack=new ArrayDeque<>();for(char c:value.toCharArray()){if(c=='('||c=='['||c=='{')stack.push(c);else if(c==')'||c==']'||c=='}'){if(stack.isEmpty())return false;char o=stack.pop();if((c==')'&&o!='(')||(c==']'&&o!='[')||(c=='}'&&o!='{'))return false;}}return stack.isEmpty();} }

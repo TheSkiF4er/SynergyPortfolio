@@ -1,0 +1,1 @@
+<?php declare(strict_types=1); namespace UserSystem; final class Administrator extends AbstractPerson { public function describe():string{return "Администратор {$this->name}";} public function roleName():string{return 'administrator';} }

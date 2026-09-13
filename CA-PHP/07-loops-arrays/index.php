@@ -1,0 +1,2 @@
+<?php require __DIR__ . '/solution.php'; $temps=[-2,0,1,3,5,4,2,-1,6,7,5,4,3,1,0,-3,-5,-4,2,4,6,8,7,5,3,1,0,-2,-1,2,3]; ?>
+<!doctype html><html lang="ru"><meta charset="utf-8"><body><pre><?php print_r(temperatureStats($temps)); print_r(randomMatrix10x10(42)); foreach(usersData() as $user){foreach($user as $k=>$v) echo "$k => $v\n";} echo 'Сумма квадратов: '.sumSquares1To25()."\n"; echo greetingByLanguage('Анна','fr'); ?></pre></body></html>

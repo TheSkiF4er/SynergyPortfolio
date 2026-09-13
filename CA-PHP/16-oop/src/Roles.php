@@ -1,0 +1,1 @@
+<?php declare(strict_types=1); namespace UserSystem; final class Roles { private array $roles=[]; public function assign(User $user,string $role):void{$this->roles[spl_object_id($user)][$role]=true;} public function has(User $user,string $role):bool{return isset($this->roles[spl_object_id($user)][$role]);} }

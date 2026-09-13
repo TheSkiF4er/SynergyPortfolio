@@ -1,0 +1,2 @@
+package edu.synergy.algorithms.misc;
+public final class MiscAlgorithms { private MiscAlgorithms(){} public static int holes(long number){int total=0;number=Math.abs(number);if(number==0)return 1;while(number>0){int d=(int)(number%10);total+=switch(d){case 0,6,9->1;case 8->2;default->0;};number/=10;}return total;} public static int fibonacciPosition(long n){if(n<1)return -1;if(n==1)return 1;long a=1,b=1;int pos=2;while(b<n&&b<=Long.MAX_VALUE-a){long c=a+b;a=b;b=c;pos++;}return b==n?pos:-1;} }

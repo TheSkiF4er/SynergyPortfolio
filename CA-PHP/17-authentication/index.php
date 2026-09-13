@@ -1,0 +1,1 @@
+<?php require __DIR__.'/auth.php'; ?><!doctype html><html lang="ru"><meta charset="utf-8"><body><h1>Публичная страница</h1><p>Эта информация доступна всем.</p><p><a href="private.php">Приватная информация</a> · <a href="login.php">Войти</a></p></body></html>

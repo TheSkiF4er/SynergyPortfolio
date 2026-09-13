@@ -1,0 +1,3 @@
+package edu.synergy.algorithms.quicksort;
+import java.io.PrintStream;
+public final class CallStackAlgorithms { private CallStackAlgorithms(){} public static void printReverseDigits(int n){printReverseDigits(n,System.out);} public static void printReverseDigits(int n,PrintStream out){int value=Math.abs(n);out.print(value%10);if(value>=10){out.print(' ');printReverseDigits(value/10,out);}} public static boolean palindrome(String word){return palindrome(word,0,word.length()-1);} private static boolean palindrome(String word,int l,int r){return l>=r||(word.charAt(l)==word.charAt(r)&&palindrome(word,l+1,r-1));} }

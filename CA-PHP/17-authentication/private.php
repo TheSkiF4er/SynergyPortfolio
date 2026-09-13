@@ -1,0 +1,1 @@
+<?php require __DIR__.'/auth.php'; requireAuth(); ?><!doctype html><html lang="ru"><meta charset="utf-8"><body><h1>Приватная страница</h1><p>Здравствуйте, <?=e((string)($_SESSION['name']??'пользователь'))?>.</p><p><a href="logout.php">Выйти</a></p></body></html>

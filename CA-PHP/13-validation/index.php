@@ -1,0 +1,4 @@
+<?php
+declare(strict_types=1); require __DIR__.'/solution.php'; $errors=[];$ok=false;if($_SERVER['REQUEST_METHOD']==='POST'){ $errors=validateRegistration($_POST);$ok=$errors===[];} function e(string $s):string{return htmlspecialchars($s,ENT_QUOTES,'UTF-8');}?>
+<!doctype html><html lang="ru"><meta charset="utf-8"><body><form method="post" novalidate>
+<?php foreach(['name'=>'Ваше имя','login'=>'Ваш логин','email'=>'Ваш e-mail','password'=>'Ваш пароль'] as $field=>$label): ?><label><?=e($label)?> <input <?= $field==='password'?'type="password"':'' ?> name="<?=e($field)?>" required></label> <?php if(isset($errors[$field])):?><strong><?=e($errors[$field])?></strong><?php endif?><br><?php endforeach?><button>Зарегистрироваться</button></form><?php if($ok):?><p>Данные прошли проверку.</p><?php endif?></body></html>

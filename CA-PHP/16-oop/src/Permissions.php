@@ -1,0 +1,1 @@
+<?php declare(strict_types=1); namespace UserSystem; final class Permissions { private array $permissions=[]; public function grant(User $user,string $permission):void{$this->permissions[spl_object_id($user)][$permission]=true;} public function has(User $user,string $permission):bool{return isset($this->permissions[spl_object_id($user)][$permission]);} }

@@ -1,0 +1,3 @@
+package edu.synergy.algorithms.finalproject;
+import java.nio.file.*;import java.util.*;
+public final class Main { public static void main(String[]args)throws Exception{Path in=Path.of(args.length>0?args[0]:"final-project/info.json"),out=Path.of(args.length>1?args[1]:"final-project/result.json");StudentJsonRepository repo=new StudentJsonRepository();Student[]students=repo.read(in).students();StudentAlgorithms.quickSort(students);Student golden=StudentAlgorithms.binarySearchGrade(students,10);if(golden==null)throw new IllegalStateException("Golden student not found");System.out.println(golden.fullName()+" — "+golden.faculty());Map<Integer,List<Student>>groups=StudentAlgorithms.groupByGrade(students);repo.write(out,golden,groups);System.out.println("Written: "+out);} }

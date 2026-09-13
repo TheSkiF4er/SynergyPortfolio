@@ -1,0 +1,2 @@
+<?php
+declare(strict_types=1);require __DIR__.'/db.php';if(PHP_SAPI!=='cli'){http_response_code(404);exit;}[$script,$login,$password,$name]=$argv+[null,null,null,null];if(!$login||!$password||!$name){fwrite(STDERR,"Usage: php seed.php LOGIN PASSWORD NAME\n");exit(2);}try{$pdo=authDb();$stmt=$pdo->prepare('INSERT INTO users(name,login,password_hash) VALUES(:name,:login,:hash)');$stmt->execute(['name'=>$name,'login'=>$login,'hash'=>password_hash($password,PASSWORD_DEFAULT)]);echo "Created\n";}catch(PDOException $e){fwrite(STDERR,"Database error: {$e->getCode()}\n");exit(1);}

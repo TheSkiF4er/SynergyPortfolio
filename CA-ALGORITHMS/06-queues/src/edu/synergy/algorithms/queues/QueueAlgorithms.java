@@ -1,0 +1,3 @@
+package edu.synergy.algorithms.queues;
+import java.util.*;
+public final class QueueAlgorithms { private QueueAlgorithms(){} public static <T> Queue<T> interleave(Queue<T> first,Queue<T> second){Queue<T> out=new ArrayDeque<>();while(!first.isEmpty()||!second.isEmpty()){if(!first.isEmpty())out.add(first.remove());if(!second.isEmpty())out.add(second.remove());}return out;} public static final class CashDesk<T>{private final Queue<T> line=new ArrayDeque<>();public void addCustomer(T client){line.add(client);}public T serveCustomer(){return line.poll();}public void arrive(T client){addCustomer(client);}public T serve(){return serveCustomer();}public int waiting(){return line.size();}} }
