@@ -14,24 +14,24 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.13' }
       - name: OS assignments
-        run: make -C CA-OS test
+        run: make -C assignments/systems/operating-systems test
       - name: JavaScript assignments
-        run: node --test CA-JS/tests/solutions.test.mjs
+        run: node --test assignments/programming/javascript/tests/solutions.test.mjs
       - name: PHP assignments
-        run: make -C CA-PHP test
+        run: make -C assignments/programming/php test
       - name: Java algorithms
-        run: make -C CA-ALGORITHMS test
+        run: make -C assignments/programming/java-algorithms test
       - name: Software documentation completeness
-        run: python3 CA-SOFTWARE-DOCUMENTATION/validate_docs.py
+        run: python3 assignments/architecture/software-documentation/validate_docs.py
       - name: Git documentation local remote demo
-        run: CA-SOFTWARE-DOCUMENTATION/05-git-documentation/run-local-demo.sh
+        run: assignments/architecture/software-documentation/05-git-documentation/run-local-demo.sh
       - name: Python tests
         run: |
           python -m pip install pytest
-          python -m pytest -q CS1PLUS/tests
-          python -m pytest -q CS1MAX/tests
+          python -m pytest -q practice/birthdate-app/plus/tests
+          python -m pytest -q practice/birthdate-app/max/tests
       - name: Compile Python sources
-        run: python -m compileall -q CA-ARCH CS1PLUS CS1MAX CS3MAX
+        run: python -m compileall -q assignments/architecture/software-architecture practice/birthdate-app/plus practice/birthdate-app/max practice/greeting-app/max
 
   architecture-patterns:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: npm install --global typescript@5.8.3
-      - run: npm --prefix CA-ARCH/patterns test
+      - run: npm --prefix assignments/architecture/software-architecture/patterns test
 
 
   architecture-api:
@@ -50,10 +50,10 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.13' }
       - name: Install API dependencies
-        working-directory: CA-ARCH/api
+        working-directory: assignments/architecture/software-architecture/api
         run: python -m pip install -r requirements-dev.txt
       - name: Test REST, GraphQL and protobuf gRPC
-        working-directory: CA-ARCH/api
+        working-directory: assignments/architecture/software-architecture/api
         run: python -m pytest -q test_api.py
 
   react-homework:
@@ -62,15 +62,15 @@ jobs:
       fail-fast: false
       matrix:
         project:
-          - CA-REACT/01-introduction
-          - CA-REACT/02-environment
-          - CA-REACT/03-components
-          - CA-REACT/04-state
-          - CA-REACT/05-conditional-rendering
-          - CA-REACT/06-router-browser-api
-          - CA-REACT/07-guardian-api
-          - CA-REACT/08-hooks-optimization
-          - CA-REACT/09-forms
+          - assignments/programming/react/01-introduction
+          - assignments/programming/react/02-environment
+          - assignments/programming/react/03-components
+          - assignments/programming/react/04-state
+          - assignments/programming/react/05-conditional-rendering
+          - assignments/programming/react/06-router-browser-api
+          - assignments/programming/react/07-guardian-api
+          - assignments/programming/react/08-hooks-optimization
+          - assignments/programming/react/09-forms
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -86,7 +86,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix: { project: [CA-JSTS1, CA-JSTS1PLUS, CA-JSTS1MAX] }
+      matrix: { project: [assignments/programming/sprint-manager/base, assignments/programming/sprint-manager/plus, assignments/programming/sprint-manager/max] }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -95,6 +95,6 @@ jobs:
         run: npm install --no-audit --no-fund
       - working-directory: ${{ matrix.project }}
         run: npm run build
-      - if: matrix.project == 'CA-JSTS1MAX'
-        working-directory: CA-JSTS1MAX
+      - if: matrix.project == 'assignments/programming/sprint-manager/max'
+        working-directory: assignments/programming/sprint-manager/max
         run: npm run typecheck

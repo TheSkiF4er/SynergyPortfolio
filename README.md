@@ -1,66 +1,104 @@
-# Synergy Portfolio — SkiF4er
+# Synergy Portfolio
 
-Учебный репозиторий с практикой и заданиями института. Репозиторий организован по двум префиксам:
+Личный репозиторий учебных проектов, практических работ и инженерных кейсов. Структура ориентирована на публичный GitHub: названия каталогов описывают содержание проектов, а внутренние шифры учебных заданий вынесены из основной навигации.
 
-- **`CS*` — учебная практика** (самостоятельные практические проекты и их расширенные версии `PLUS` / `MAX`).
-- **`CA-*` — учебные задания** по отдельным дисциплинам.
+> Исходные методические материалы института не публикуются. В репозитории находятся только собственные решения, код, схемы, отчёты и воспроизводимые артефакты.
 
-> Исходные методические PDF института намеренно не публикуются в репозитории. В папках находятся только выполненные решения, собственные отчёты и воспроизводимые материалы.
+## Что посмотреть в первую очередь
 
-## Навигация
-
-| Раздел | Назначение | Технологии |
+| Проект | Что демонстрирует | Путь |
 |---|---|---|
-| `CS1` / `PLUS` / `MAX` | Работа с датой рождения | Python, CLI, Django, tests, Docker |
-| `CS2` / `PLUS` / `MAX` | Web counter | JavaScript, state/reducer, Playwright/Jest |
-| `CS3` / `PLUS` / `MAX` | Greeting web app | Django, DRF, cache, Docker |
-| `CS4` / `PLUS` / `MAX` | Calculator | JavaScript, Web Worker, tests |
-| `CS5` / `PLUS` / `MAX` | Анализ предыдущих работ | Technical review / product analysis |
-| `CA-JS` | 20 заданий курса JavaScript | JavaScript, Browser APIs, IndexedDB |
-| `CA-PHP` | 17 заданий курса PHP | PHP, HTML/CSS, PDO, MySQL, OOP, authentication |
-| `CA-ALGORITHMS` | 10 Java ДЗ + итоговый проект | Java, algorithms, data structures, JSON |
-| `CA-REACT` | 9 заданий курса React | React 18, CRA/Vite, Router, hooks, forms/API |
-| `CA-JSTS1*` | Итоговый React-проект SprintNova | React, TypeScript |
-| `CA-OS` | Архитектуры ОС | Bash, C, processes, pthreads, sockets |
-| `CA-NET` | Компьютерные сети | Cisco IOS configs, GNS3 lab guides |
-| `CA-ARCH` | Архитектура ПО | C4, UML, ER, REST, GraphQL, gRPC, patterns |
-| `CA-SOFTWARE-DOCUMENTATION` | Документирование ПО: 20 заданий | Руководства, эксплуатационные документы, Git, ТЗ |
-| `CA-UIUX` | Промежуточные UI/UX-практики | UX research, UI kit, testing, handoff |
-| `CA-DSGN1*` | Финальный UI/UX-кейс CHANGEBODY | UX/UI, prototype/handoff |
-| `CA-DSGN2*` | Финальный UI/UX-кейс банка | UX/UI, responsive redesign |
+| **SprintNova Control** | React + TypeScript, управление спринтами, состояние, валидация, аналитика | [`assignments/programming/sprint-manager/max`](assignments/programming/sprint-manager/max) |
+| **Software Architecture** | C4, UML, ER, REST, GraphQL, protobuf gRPC, design patterns | [`assignments/architecture/software-architecture`](assignments/architecture/software-architecture) |
+| **PHP Authentication** | PHP, PDO, sessions, password hashing, access control | [`assignments/programming/php/17-authentication`](assignments/programming/php/17-authentication) |
+| **Java Algorithms — Final Project** | Quick sort, binary search, collections, JSON processing | [`assignments/programming/java-algorithms/final-project`](assignments/programming/java-algorithms/final-project) |
+| **CHANGEBODY** | UI/UX research, user flow, prototypes and handoff | [`assignments/design/changebody`](assignments/design/changebody) |
 
-## Быстрые проверки
+## Структура
 
-```bash
-# Системные задания
-make -C CA-OS test
-
-# JavaScript
-node --test CA-JS/tests/*.test.mjs
-
-# PHP
-make -C CA-PHP test
-
-# Java algorithms
-make -C CA-ALGORITHMS test
-
-# Архитектурные паттерны
-npm --prefix CA-ARCH/patterns test
-
-# Документирование ПО
-python3 CA-SOFTWARE-DOCUMENTATION/validate_docs.py
+```text
+.
+├── practice/                   # учебная практика
+│   ├── birthdate-app/
+│   ├── counter-app/
+│   ├── greeting-app/
+│   ├── calculator/
+│   └── project-review/
+│
+├── assignments/                # учебные задания по дисциплинам
+│   ├── programming/
+│   ├── systems/
+│   ├── architecture/
+│   └── design/
+│
+├── docs/                       # карта репозитория, статусы и отчёты
+└── .github/workflows/          # автоматические проверки
 ```
 
-React-задания запускаются отдельно. Для `CA-REACT/02-environment` (Create React App) — `npm install && npm start`; для остальных — `npm install && npm run dev`.
+У проектов учебной практики и крупных итоговых кейсов могут быть уровни:
 
-Полное покрытие заданий и список внешних действий: [`ASSIGNMENT_STATUS.md`](ASSIGNMENT_STATUS.md). Результаты локальных проверок: [`COMPLETION_REPORT.md`](COMPLETION_REPORT.md).
+- `base` — исходное решение по условиям задания;
+- `plus` — расширенная версия;
+- `max` — наиболее полная инженерная версия.
 
-## Ограничения воспроизводимости лабораторных
+Подробная карта: [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md).
 
-Для сетевых лабораторных приложены адресные планы, готовые Cisco IOS-конфигурации и команды проверки. Сам образ Cisco IOS не распространяется. GNS3-проект необходимо собрать на локальной установке с легально полученным образом, после чего вставить соответствующие конфигурации.
+## Учебная практика
 
-Для UI/UX приложены собственные артефакты, design tokens, HTML/SVG-прототипы и handoff-документация. Если преподаватель требует именно ссылку Figma, соответствующие экраны следует импортировать/пересобрать в личном Figma-проекте и добавить URL в указанное место — фиктивная ссылка в репозитории не создаётся.
+| Проект | Версии | Технологии |
+|---|---|---|
+| [Birthdate App](practice/birthdate-app) | base / plus / max | Python, CLI, Django, tests, Docker |
+| [Counter App](practice/counter-app) | base / plus / max | JavaScript, reducer/store, Jest/Playwright |
+| [Greeting App](practice/greeting-app) | base / plus / max | Django, DRF, cache, Docker |
+| [Calculator](practice/calculator) | base / plus / max | JavaScript, Web Worker, tests |
+| [Project Review](practice/project-review) | base / plus / max | technical and product analysis |
 
-## Лицензия
+## Учебные задания
 
-Код репозитория — см. `LICENSE`. Сторонние бренды и товарные знаки принадлежат их правообладателям.
+### Programming
+
+- [JavaScript](assignments/programming/javascript) — 20 заданий;
+- [PHP](assignments/programming/php) — 17 заданий;
+- [Java: структуры и алгоритмы](assignments/programming/java-algorithms) — 10 заданий + итоговый проект;
+- [React](assignments/programming/react) — 9 заданий;
+- [Sprint Manager](assignments/programming/sprint-manager) — итоговый React-проект в версиях base / plus / max.
+
+### Systems
+
+- [Operating Systems](assignments/systems/operating-systems) — Bash, C, процессы, потоки, sockets;
+- [Networking](assignments/systems/networking) — Cisco IOS configurations, routing, ACL, VLAN, NAT, IPv6, RIP, OSPF, GRE.
+
+### Architecture & Documentation
+
+- [Software Architecture](assignments/architecture/software-architecture) — C4, UML, ER, API styles, patterns;
+- [Software Documentation](assignments/architecture/software-documentation) — эксплуатационная документация, Git-практикум, технические задания.
+
+### Design
+
+- [UI/UX Exercises](assignments/design/ui-ux) — композиция, сетки, типографика, research, testing, handoff;
+- [CHANGEBODY](assignments/design/changebody) — mobile UI/UX case study;
+- [Bank Website Redesign](assignments/design/bank-website-redesign) — responsive banking website case study.
+
+## Проверки
+
+Основные локальные проверки объединены в корневом `Makefile`:
+
+```bash
+make test-core
+make test-practice
+make test-docs
+```
+
+Отдельные команды и требования окружения описаны в README соответствующих проектов. GitHub Actions выполняет Python, JavaScript, PHP, Java, архитектурные API/patterns и React build checks.
+
+## Статус выполнения
+
+- Сводка по дисциплинам: [`docs/ASSIGNMENT_STATUS.md`](docs/ASSIGNMENT_STATUS.md)
+- Результаты и ограничения проверок: [`docs/COMPLETION_REPORT.md`](docs/COMPLETION_REPORT.md)
+- Внешние действия, которые нельзя достоверно заменить локальными файлами: [`docs/EXTERNAL_DELIVERABLES.md`](docs/EXTERNAL_DELIVERABLES.md)
+
+## Безопасность и лицензирование
+
+Реальные секреты, персональные данные участников исследований, проприетарные сетевые образы и исходные методические PDF не должны попадать в Git. Дополнительные правила: [`SECURITY.md`](SECURITY.md).
+
+Код и собственные материалы репозитория распространяются на условиях [`LICENSE`](LICENSE). Сторонние бренды и товарные знаки принадлежат соответствующим правообладателям.

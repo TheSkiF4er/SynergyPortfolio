@@ -30,3 +30,6 @@ Thumbs.db
 **/*.image
 **/*.bin
 **/*.qcow2
+
+# Local compiler/test output
+**/.build/
