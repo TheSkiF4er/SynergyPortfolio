@@ -4,7 +4,7 @@ PYTHON ?= python3
 
 help:
 	@printf '%s\n' \
-	  'make test-core      # OS, JavaScript, PHP, Java algorithms' \
+	  'make test-core      # OS, JavaScript, PHP, Java algorithms/fundamentals' \
 	  'make test-practice  # Python practice tests (requires pytest)' \
 	  'make test-docs      # software-documentation completeness'
 
@@ -13,6 +13,7 @@ test-core:
 	node --test assignments/programming/javascript/tests/solutions.test.mjs
 	$(MAKE) -C assignments/programming/php test
 	$(MAKE) -C assignments/programming/java-algorithms test
+	$(MAKE) -C assignments/programming/java-fundamentals test
 
 test-practice:
 	$(PYTHON) -m pytest -q practice/birthdate-app/plus/tests

@@ -32,6 +32,7 @@ assignments/<area>/<subject-or-project>
 | JavaScript | `assignments/programming/javascript/` |
 | PHP | `assignments/programming/php/` |
 | Java algorithms | `assignments/programming/java-algorithms/` |
+| Java fundamentals (12 тем + 3 итоговых проекта) | `assignments/programming/java-fundamentals/` |
 | React | `assignments/programming/react/` |
 | Sprint Manager | `assignments/programming/sprint-manager/` |
 

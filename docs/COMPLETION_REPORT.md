@@ -9,10 +9,13 @@
 - Software Architecture: C4/UML/ER, REST/GraphQL/protobuf gRPC, TypeScript design patterns.
 - PHP: 17 заданий, включая PDO, database schema, OOP и authentication.
 - Java Algorithms: 10 заданий + итоговая обработка JSON.
+- Java Fundamentals: 12 тем и 3 итоговых проекта — CLI, OOП, файловое хранение, проверка портов, два механизма потоков, TCP-чат; 100 автоматических проверок (включая интеграционные TCP и round-trip файлов).
 - Software Documentation: эксплуатационные документы, технические задания, local Git remote demo и автоматическая проверка комплектности.
 - Учебная практика: пять проектов в уровнях base / plus / max.
 
 ## Подготовлено, но требует внешнего подтверждения
+
+- Java Fundamentals, тема 1: установка и настройки IntelliJ IDEA на устройстве студента не подтверждаются Git-репозиторием; подготовлены инструкция и локальная проверка JDK.
 
 - Networking: Cisco IOS configs/addressing/verification готовы; `.gns3`, реальные `show`/`ping`/captures требуют локального GNS3 и легального IOS image.
 - UI/UX: локальные boards, research/test plans, handoff и recording materials готовы; реальные участники, Google Form, Figma Prototype/Dev Mode и video URL должны создаваться во внешних сервисах.

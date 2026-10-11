@@ -33,3 +33,10 @@ Thumbs.db
 
 # Local compiler/test output
 **/.build/
+
+# Java Fundamentals default console-project output (run from repository root)
+/library.tsv
+/finance.tsv
+/tasks.tsv
+/good_ip.txt
+/proxies.txt

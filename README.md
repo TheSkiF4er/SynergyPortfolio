@@ -8,7 +8,7 @@
 
 | Проект | Что демонстрирует | Путь |
 |---|---|---|
-| **SprintNova Control** | React + TypeScript, управление спринтами, состояние, валидация, аналитика | [`assignments/programming/sprint-manager/max`](assignments/programming/sprint-manager/max) |
+| **SprintNova Control** | React + TypeScript, управление спринтами, состояние, валидация, аналитика | [`assignments/programming/sprint-manager`](assignments/programming/sprint-manager) |
 | **Software Architecture** | C4, UML, ER, REST, GraphQL, protobuf gRPC, design patterns | [`assignments/architecture/software-architecture`](assignments/architecture/software-architecture) |
 | **PHP Authentication** | PHP, PDO, sessions, password hashing, access control | [`assignments/programming/php/17-authentication`](assignments/programming/php/17-authentication) |
 | **Java Algorithms — Final Project** | Quick sort, binary search, collections, JSON processing | [`assignments/programming/java-algorithms/final-project`](assignments/programming/java-algorithms/final-project) |
@@ -60,8 +60,9 @@
 - [JavaScript](assignments/programming/javascript) — 20 заданий;
 - [PHP](assignments/programming/php) — 17 заданий;
 - [Java: структуры и алгоритмы](assignments/programming/java-algorithms) — 10 заданий + итоговый проект;
+- [Java: основы программирования](assignments/programming/java-fundamentals) — 12 тем + 3 итоговых проекта;
 - [React](assignments/programming/react) — 9 заданий;
-- [Sprint Manager](assignments/programming/sprint-manager) — итоговый React-проект в версиях base / plus / max.
+- [Sprint Manager](assignments/programming/sprint-manager) — итоговый React-проект.
 
 ### Systems
 
@@ -89,7 +90,7 @@ make test-practice
 make test-docs
 ```
 
-Отдельные команды и требования окружения описаны в README соответствующих проектов. GitHub Actions выполняет Python, JavaScript, PHP, Java, архитектурные API/patterns и React build checks.
+Отдельные команды и требования окружения описаны в README соответствующих проектов. GitHub Actions выполняет Python, JavaScript, PHP, Java (алгоритмы и основы), архитектурные API/patterns и React build checks.
 
 ## Статус выполнения
 
