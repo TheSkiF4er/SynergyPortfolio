@@ -17,6 +17,14 @@ jobs:
         run: make -C CA-OS test
       - name: JavaScript assignments
         run: node --test CA-JS/tests/solutions.test.mjs
+      - name: PHP assignments
+        run: make -C CA-PHP test
+      - name: Java algorithms
+        run: make -C CA-ALGORITHMS test
+      - name: Software documentation completeness
+        run: python3 CA-SOFTWARE-DOCUMENTATION/validate_docs.py
+      - name: Git documentation local remote demo
+        run: CA-SOFTWARE-DOCUMENTATION/05-git-documentation/run-local-demo.sh
       - name: Python tests
         run: |
           python -m pip install pytest

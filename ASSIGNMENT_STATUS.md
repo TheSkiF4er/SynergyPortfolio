@@ -14,6 +14,9 @@
 | UI/UX intermediate | `CA-UIUX`: 13 практик | 🟡 Local design/research kits ready; real participants/Figma/Form/video still external |
 | UI/UX final | `CA-DSGN1*`, `CA-DSGN2*` | 🟡 Local case studies ready; literal Figma URL/prototype remains external |
 | Архитектура ПО | `CA-ARCH`: 8 ДЗ + final | ✅ Implemented locally; API examples include protobuf gRPC |
+| PHP | `CA-PHP`: 17 заданий | ✅ Completed locally: source + PHP smoke tests |
+| Структуры и алгоритмы | `CA-ALGORITHMS`: 10 ДЗ + final | ✅ Completed locally: Java source + 38 checks |
+| Документирование ПО | `CA-SOFTWARE-DOCUMENTATION`: 20 заданий | 🟡 18/20 выполнены воспроизводимо; создание реальных GitHub/Bitbucket репозиториев требует внешних аккаунтов |
 
 ## Важные уточнения
 
@@ -24,3 +27,7 @@ Lab 12 содержит три GRE-туннеля R1↔R3, R3↔R4, R4↔R1, Loo
 Практики 1–6 имеют локальные редактируемые макеты; 7–13 дополнены brief/research/test/recording/handoff kits. Нельзя честно пометить real user testing, Google Form, Figma prototype/Dev Mode или видеозащиту как completed, пока такие объекты не созданы в соответствующих сервисах/с реальными людьми.
 
 Подробности: `CA-UIUX/EXTERNAL_DELIVERABLES.md`.
+
+
+### Документирование программного обеспечения
+Тема 3: подготовлены 5 руководств пользователя и 15 документов по выходным данным/БД. Тема 6: подготовлены 5 технических заданий. Тема 5: задания 3–5 выполняются воспроизводимым local-remote demo; для заданий 1–2 реальные GitHub/Bitbucket URL не подделываются и добавляются после действий владельца аккаунтов.

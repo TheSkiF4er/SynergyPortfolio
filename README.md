@@ -17,11 +17,14 @@
 | `CS4` / `PLUS` / `MAX` | Calculator | JavaScript, Web Worker, tests |
 | `CS5` / `PLUS` / `MAX` | Анализ предыдущих работ | Technical review / product analysis |
 | `CA-JS` | 20 заданий курса JavaScript | JavaScript, Browser APIs, IndexedDB |
+| `CA-PHP` | 17 заданий курса PHP | PHP, HTML/CSS, PDO, MySQL, OOP, authentication |
+| `CA-ALGORITHMS` | 10 Java ДЗ + итоговый проект | Java, algorithms, data structures, JSON |
 | `CA-REACT` | 9 заданий курса React | React 18, CRA/Vite, Router, hooks, forms/API |
 | `CA-JSTS1*` | Итоговый React-проект SprintNova | React, TypeScript |
 | `CA-OS` | Архитектуры ОС | Bash, C, processes, pthreads, sockets |
 | `CA-NET` | Компьютерные сети | Cisco IOS configs, GNS3 lab guides |
 | `CA-ARCH` | Архитектура ПО | C4, UML, ER, REST, GraphQL, gRPC, patterns |
+| `CA-SOFTWARE-DOCUMENTATION` | Документирование ПО: 20 заданий | Руководства, эксплуатационные документы, Git, ТЗ |
 | `CA-UIUX` | Промежуточные UI/UX-практики | UX research, UI kit, testing, handoff |
 | `CA-DSGN1*` | Финальный UI/UX-кейс CHANGEBODY | UX/UI, prototype/handoff |
 | `CA-DSGN2*` | Финальный UI/UX-кейс банка | UX/UI, responsive redesign |
@@ -35,8 +38,17 @@ make -C CA-OS test
 # JavaScript
 node --test CA-JS/tests/*.test.mjs
 
+# PHP
+make -C CA-PHP test
+
+# Java algorithms
+make -C CA-ALGORITHMS test
+
 # Архитектурные паттерны
 npm --prefix CA-ARCH/patterns test
+
+# Документирование ПО
+python3 CA-SOFTWARE-DOCUMENTATION/validate_docs.py
 ```
 
 React-задания запускаются отдельно. Для `CA-REACT/02-environment` (Create React App) — `npm install && npm start`; для остальных — `npm install && npm run dev`.

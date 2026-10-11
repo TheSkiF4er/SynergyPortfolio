@@ -1,0 +1,11 @@
+== init bare remote ==
+== create source repo and connect remote ==
+origin	/tmp/synergy-git-practice-1327/remote.git (fetch)
+origin	/tmp/synergy-git-practice-1327/remote.git (push)
+== clone remote ==
+origin	/tmp/synergy-git-practice-1327/remote.git (fetch)
+origin	/tmp/synergy-git-practice-1327/remote.git (push)
+== create branch ==
+branch=docs/software-documentation-practice
+head=7a5c672
+status=0 changes
