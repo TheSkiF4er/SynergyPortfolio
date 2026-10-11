@@ -36,8 +36,12 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "18.16.19",
     "@types/react": "18.2.66",
     "@types/react-dom": "18.2.22"
   },
-  "description": "SprintNova Control — product operations workspace with sprint governance, category-aware task management, risk center, blocker management, fast status switching, delivery health score, capacity planning and resilient local data operations."
+  "description": "SprintNova Control — product operations workspace with sprint governance, category-aware task management, risk center, blocker management, fast status switching, delivery health score, capacity planning and resilient local data operations.",
+  "overrides": {
+    "@types/node": "18.16.19"
+  }
 }
