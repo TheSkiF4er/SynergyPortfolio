@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { initialMembers, initialSprint, initialTasks } from '../utils/mockData';
 import { ActivityEvent, Sprint, Task, TeamMember } from '../utils/types';
 
@@ -132,11 +132,11 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
     );
   }, [activityLog, hydrated, members, sprint, tasks]);
 
-  const pushActivity = (type: ActivityEvent['type'], title: string, description: string) => {
+  const pushActivity = useCallback((type: ActivityEvent['type'], title: string, description: string) => {
     setActivityLog((current) => [createActivityEvent(type, title, description), ...current].slice(0, 80));
-  };
+  }, []);
 
-  const exportData = () => {
+  const exportData = useCallback(() => {
     const payload = {
       product: 'SprintNova Control',
       version: '10.0.0',
@@ -151,9 +151,9 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
     link.download = `sprintnova-control-backup-${new Date().toISOString().slice(0, 10)}.json`;
     link.click();
     window.URL.revokeObjectURL(url);
-  };
+  }, [activityLog, lastSavedAt, members, sprint, tasks]);
 
-  const importData = async (file: File): Promise<{ ok: boolean; message: string }> => {
+  const importData = useCallback(async (file: File): Promise<{ ok: boolean; message: string }> => {
     try {
       const raw = await file.text();
       const parsed = JSON.parse(raw) as { data?: Partial<PersistedState> } | Partial<PersistedState>;
@@ -181,7 +181,7 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
       console.error('Не удалось импортировать данные', error);
       return { ok: false, message: 'Не удалось прочитать JSON-файл импорта.' };
     }
-  };
+  }, [pushActivity]);
 
   const value = useMemo<AppContextValue>(
     () => ({
@@ -245,7 +245,7 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
         pushActivity('system', 'Workspace reset', 'Стартовые данные были восстановлены пользователем.');
       }
     }),
-    [activityLog, lastSavedAt, members, sprint, tasks]
+    [activityLog, exportData, importData, lastSavedAt, members, pushActivity, sprint, tasks]
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
